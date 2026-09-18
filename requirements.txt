@@ -1,0 +1,3 @@
+# Python 3.10+ (tkinter is in the standard library)
+numpy>=1.26
+matplotlib>=3.8

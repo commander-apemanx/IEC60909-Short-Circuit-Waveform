@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# PyInstaller
+build/
+dist/
+
+# Local binaries and archives (published via GitHub Releases, not git)
+*.exe
+*.7z
+*.zip
+*.tar.gz
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Experimental / unrelated local files
+DC_Decay_DeepResearch.py
+idc_thing.py
+pltsinewave.py
+
+# Images (IEC figure is copyrighted; local screenshots stay local)
+*.png
+*.jpg
+*.jpeg
