@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use this software, you must cite it as below (CC BY 4.0)."
+title: "IEC 60909 Short-Circuit Waveform"
+authors:
+  - name: "commander-apemanx"
+    alias: "Japie"
+    website: "https://github.com/commander-apemanx"
+license: CC-BY-4.0
+repository-code: "https://github.com/commander-apemanx/IEC60909-Short-Circuit-Waveform"
+url: "https://github.com/commander-apemanx/IEC60909-Short-Circuit-Waveform"
+version: "1.0.1"
+date-released: "2026-09-18"
+type: software
+keywords:
+  - IEC 60909
+  - short-circuit
+  - waveform
+  - power systems
+preferred-citation:
+  type: software
+  title: "IEC 60909 Short-Circuit Waveform"
+  authors:
+    - name: "commander-apemanx"
+  url: "https://github.com/commander-apemanx/IEC60909-Short-Circuit-Waveform"
+  version: "1.0.1"
+  year: 2026
+  notes: "Licensed under CC BY 4.0. Attribution required."

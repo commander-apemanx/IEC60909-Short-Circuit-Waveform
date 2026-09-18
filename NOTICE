@@ -1,0 +1,24 @@
+IEC 60909 Short-Circuit Waveform
+Copyright (c) 2026 commander-apemanx
+
+Licensed under Creative Commons Attribution 4.0 International (CC BY 4.0).
+https://creativecommons.org/licenses/by/4.0/
+
+Required attribution
+--------------------
+CC BY 4.0 section 3(a) lets the licensor request a reasonable manner of
+credit. The required credit is:
+
+  IEC 60909 Short-Circuit Waveform by commander-apemanx
+  https://github.com/commander-apemanx/IEC60909-Short-Circuit-Waveform
+  Licensed under CC BY 4.0
+
+Include this credit, reasonably prominent, whenever you:
+
+  - copy, modify, or redistribute the software (source or binary)
+  - publish or share plots, reports, screenshots, or other results
+    produced with the software
+  - ship a derivative tool or include this code in another project
+
+A hyperlink to the repository that displays the credit is enough where
+space is tight (for example a figure caption).

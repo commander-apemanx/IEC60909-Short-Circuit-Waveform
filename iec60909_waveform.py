@@ -6,6 +6,10 @@ Tkinter UI with an embedded matplotlib plot. Reset and Save are native
 buttons (not matplotlib widgets), so they keep working in the .exe.
 
     python iec60909_waveform.py
+
+Copyright (c) 2026 commander-apemanx
+Licensed under CC BY 4.0. Attribution is required — see NOTICE.
+https://github.com/commander-apemanx/IEC60909-Short-Circuit-Waveform
 """
 
 from __future__ import annotations
@@ -39,6 +43,14 @@ def _log(msg: str) -> None:
         print(msg)
     except Exception:
         pass
+
+
+AUTHOR = "commander-apemanx"
+REPO_URL = "https://github.com/commander-apemanx/IEC60909-Short-Circuit-Waveform"
+LICENSE_ID = "CC BY 4.0"
+CREDIT_LINE = (
+    f"IEC 60909 Short-Circuit Waveform by {AUTHOR}  ·  {REPO_URL}  ·  {LICENSE_ID}"
+)
 
 
 # ---------------------------------------------------------------------------
@@ -237,7 +249,7 @@ class WaveformApp:
 
     def __init__(self, root: tk.Tk) -> None:
         self.root = root
-        self.root.title("IEC 60909 short-circuit current")
+        self.root.title("IEC 60909 short-circuit current — commander-apemanx")
         self.root.minsize(1100, 720)
         self.root.geometry("1280x820")
         self._updating = False
@@ -274,11 +286,15 @@ class WaveformApp:
         plot_frame.rowconfigure(0, weight=1)
 
         self.fig = Figure(figsize=(10.5, 5.6), dpi=100, facecolor="white")
-        self.ax = self.fig.add_axes([0.08, 0.14, 0.90, 0.78])
+        self.ax = self.fig.add_axes([0.08, 0.16, 0.90, 0.76])
         self.ax.grid(True, alpha=0.35)
         self.ax.set_xlabel("Time (ms)")
         self.ax.set_ylabel("Current (kA)")
         self.ax.set_title("IEC 60909 short-circuit current — offset waveform with envelopes")
+        self.fig.text(
+            0.5, 0.012, CREDIT_LINE,
+            ha="center", va="bottom", fontsize=7, color="#555555",
+        )
 
         data = compute(DEFAULTS)
         t_ms = data["t"] * 1e3
@@ -316,7 +332,13 @@ class WaveformApp:
             relief="solid", borderwidth=1, state="disabled", wrap="none",
             background="#f7f7f7",
         )
-        self.info.pack(fill="y", expand=True, pady=(6, 0))
+        self.info.pack(fill="y", expand=True, pady=(6, 8))
+        ttk.Label(
+            info_frame,
+            text=f"© {AUTHOR}\n{LICENSE_ID} — attribution required",
+            style="Hint.TLabel",
+            justify="left",
+        ).pack(anchor="w")
 
     def _build_controls(self) -> None:
         bar = ttk.Frame(self.root, padding=(10, 8, 10, 10))
@@ -346,7 +368,8 @@ class WaveformApp:
             text=(
                 "The d.c. component is the moving centre-line of the offset sinusoid.  "
                 "Top / bottom envelopes = d.c. ± √2 I_ac(t).  "
-                "Set I_k'' = I_k for a far-from-generator fault."
+                "Set I_k'' = I_k for a far-from-generator fault.  "
+                f"Credit: {CREDIT_LINE}"
             ),
             style="Hint.TLabel",
             wraplength=1100,

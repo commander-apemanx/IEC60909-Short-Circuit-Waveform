@@ -110,6 +110,31 @@ The binary is written to `dist/IEC60909_Waveform.exe`.
 | `iec60909_waveform.py` | Application |
 | `requirements.txt` | Runtime Python packages |
 | `IEC60909_Waveform.spec` | PyInstaller spec used to build the Windows `.exe` |
+| `LICENSE` | CC BY 4.0 |
+| `NOTICE` | Required credit text |
+| `CITATION.cff` | Machine-readable citation (GitHub “Cite this repository”) |
+
+## License and attribution
+
+Copyright (c) 2026 [commander-apemanx](https://github.com/commander-apemanx).
+
+This project is licensed under [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/). You may use, copy, modify, and share it — **including commercially** — **only if you give credit**.
+
+### Required credit
+
+```
+IEC 60909 Short-Circuit Waveform by commander-apemanx
+https://github.com/commander-apemanx/IEC60909-Short-Circuit-Waveform
+Licensed under CC BY 4.0
+```
+
+Put that credit (or a hyperlink that shows it) in:
+
+- copies and modified versions of the software
+- documentation of any derivative tool
+- publications, reports, screenshots, and plots you share that were produced with this software
+
+GitHub’s **Cite this repository** button uses `CITATION.cff`. Full terms: [`LICENSE`](LICENSE) and [`NOTICE`](NOTICE).
 
 ## Disclaimer
 
