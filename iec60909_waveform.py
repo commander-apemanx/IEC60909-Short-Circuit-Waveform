@@ -148,8 +148,9 @@ def dc_energy_area(p: UserParams) -> float:
     Returns ∫ i_dc(t) dt in kA·s (i_dc in kA, t in seconds).
     """
     data = compute(p)
-    trapz = getattr(np, "trapezoid", np.trapz)
-    return float(trapz(data["i_dc"], data["t"]))
+    if hasattr(np, "trapezoid"):
+        return float(np.trapezoid(data["i_dc"], data["t"]))
+    return float(np.trapz(data["i_dc"], data["t"]))
 
 
 def _info_text(p: UserParams, d: dict) -> str:
