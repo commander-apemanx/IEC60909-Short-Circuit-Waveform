@@ -142,6 +142,16 @@ def _first_extremum(t: np.ndarray, y: np.ndarray, positive: bool) -> tuple[float
     return float(t[i]), float(y[i])
 
 
+def dc_energy_area(p: UserParams) -> float:
+    """Area under the d.c. component over [0, T], T = Duration (t_end).
+
+    Returns ∫ i_dc(t) dt in kA·s (i_dc in kA, t in seconds).
+    """
+    data = compute(p)
+    trapz = getattr(np, "trapezoid", np.trapz)
+    return float(trapz(data["i_dc"], data["t"]))
+
+
 def _info_text(p: UserParams, d: dict) -> str:
     return (
         "IEC 60909 quantities\n"
@@ -362,6 +372,15 @@ class WaveformApp:
         self.btn_reset.pack(side="left", padx=(0, 8))
         self.btn_save = ttk.Button(btns, text="Save PNG…", command=self.on_save)
         self.btn_save.pack(side="left")
+        self.btn_dc_energy = ttk.Button(
+            btns, text="DC energy", command=self.on_dc_energy
+        )
+        self.btn_dc_energy.pack(side="left", padx=(16, 8))
+        self.dc_energy_var = tk.StringVar(value="")
+        self.dc_energy_box = ttk.Entry(
+            btns, textvariable=self.dc_energy_var, width=18, state="readonly"
+        )
+        self.dc_energy_box.pack(side="left")
 
         ttk.Label(
             bar,
@@ -466,6 +485,13 @@ class WaveformApp:
         finally:
             self._updating = False
         self.refresh()
+
+    def on_dc_energy(self) -> None:
+        """Fill the text box with ∫ i_dc dt over Duration T (area under DC only)."""
+        p = self.params_from_controls()
+        area_ka_s = dc_energy_area(p)
+        # T is set in ms on the Duration slider; report area in kA·ms.
+        self.dc_energy_var.set(f"{area_ka_s * 1e3:.4f} kA·ms")
 
     def save_png(self, path: str) -> None:
         self.fig.savefig(path, dpi=160, bbox_inches="tight", facecolor="white")
