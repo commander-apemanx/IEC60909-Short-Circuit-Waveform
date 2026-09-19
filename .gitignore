@@ -28,6 +28,9 @@ DC_Decay_DeepResearch.py
 idc_thing.py
 pltsinewave.py
 
+# Local mathematical notes (not part of the published repo)
+formula_notes/
+
 # Images (IEC figure is copyrighted; local screenshots stay local)
 *.png
 *.jpg
